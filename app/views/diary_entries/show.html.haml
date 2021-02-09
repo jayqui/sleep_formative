@@ -1,0 +1,3 @@
+- diaryEntry = @diary_entry.attributes.deep_transform_keys { |key| key.camelize(:lower) }
+
+= react_component("DiaryEntry", diaryEntry: diaryEntry)
