@@ -45,6 +45,7 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'rack-mini-profiler', '~> 2.0'
+  gem 'react-rails'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rubocop'
