@@ -1,2 +1,3 @@
-#diary_entries{data: @diary_entries.to_json}
-= javascript_pack_tag 'DiaryEntries'
+- diaryEntries = @diary_entries.map { |entry| entry.attributes.deep_transform_keys { |key| key.camelize(:lower) } }
+
+= react_component("DiaryEntries", diaryEntries: diaryEntries)
