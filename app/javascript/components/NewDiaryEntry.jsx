@@ -7,10 +7,24 @@ import FormLabel from '@material-ui/core/FormLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { nameEmailConfig, mainTextFieldsConfig } from 'components/NewDiaryEntry/newDiaryEntryConfig';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: '50ch',
+    },
+  },
+}));
 
 function NewDiaryEntry() {
+  const classes = useStyles();
+
   return (
-    <>
+    <form className={classes.root}>
       <h1>New Sleep Diary Entry</h1>
       <p>One of the most critical aspects of your success is this sleep diary.
       Please fill it out within 30 minutes of waking so your certified sleep specialist
