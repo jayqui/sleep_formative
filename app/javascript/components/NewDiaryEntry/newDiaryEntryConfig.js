@@ -11,6 +11,21 @@ export const nameEmailConfig = [
   },
 ];
 
+export const coachConfig = [
+  {
+    id: 1,
+    name: "Coach One",
+  },
+  {
+    id: 2,
+    name: "Coach Two",
+  },
+  {
+    id: 3,
+    name: "Coach Three",
+  },
+];
+
 export const mainTextFieldsConfig = [
   {
     id: 'CurrentTime',
