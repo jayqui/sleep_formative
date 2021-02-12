@@ -22,19 +22,19 @@
 #
 FactoryBot.define do
   factory :diary_entry do
-    logged_at { "2021-02-07 07:45:28" }
+    logged_at { '2021-02-07 07:45:28' }
     naps_count { 1 }
     nap_minutes_total { 1 }
-    bed_entry_time { "2021-02-07 07:45:28" }
-    sleep_try_time { "2021-02-07 07:45:28" }
+    bed_entry_time { '2021-02-07 07:45:28' }
+    sleep_try_time { '2021-02-07 07:45:28' }
     sleep_onset_duration { 1 }
     awakenings_count { 1 }
     awakenings_duration { 1 }
-    awoke_at { "2021-02-07 07:45:28" }
-    arose_at { "2021-02-07 07:45:28" }
+    awoke_at { '2021-02-07 07:45:28' }
+    arose_at { '2021-02-07 07:45:28' }
     medicated { false }
-    medications { "MyString" }
+    medications { 'MyString' }
     quality { 1 }
-    comments { "MyText" }
+    comments { 'MyText' }
   end
 end

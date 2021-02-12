@@ -12,9 +12,9 @@
 #
 FactoryBot.define do
   factory :coach do
-    title { "MyString" }
-    first_name { "MyString" }
-    last_name { "MyString" }
-    email { "MyString" }
+    title { 'MyString' }
+    first_name { 'MyString' }
+    last_name { 'MyString' }
+    email { 'MyString' }
   end
 end

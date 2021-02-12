@@ -1,5 +1,5 @@
 class DiaryEntriesController < ApplicationController
-  before_action :set_diary_entry, only: %i[ show edit ] # update destroy ]
+  before_action :set_diary_entry, only: %i[show edit] # update destroy ]
 
   # GET /diary_entries or /diary_entries.json
   def index
@@ -7,8 +7,7 @@ class DiaryEntriesController < ApplicationController
   end
 
   # GET /diary_entries/1 or /diary_entries/1.json
-  def show
-  end
+  def show; end
 
   # GET /diary_entries/new
   def new
@@ -16,8 +15,7 @@ class DiaryEntriesController < ApplicationController
   end
 
   # GET /diary_entries/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /diary_entries or /diary_entries.json
   def create
@@ -25,7 +23,7 @@ class DiaryEntriesController < ApplicationController
 
     respond_to do |format|
       if @diary_entry.save
-        format.html { redirect_to @diary_entry, notice: "Diary entry was successfully created." }
+        format.html { redirect_to @diary_entry, notice: 'Diary entry was successfully created.' }
         format.json { render :show, status: :created, location: @diary_entry }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,13 +55,14 @@ class DiaryEntriesController < ApplicationController
   # end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_diary_entry
-      @diary_entry = DiaryEntry.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def diary_entry_params
-      params.fetch(:diary_entry, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_diary_entry
+    @diary_entry = DiaryEntry.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def diary_entry_params
+    params.fetch(:diary_entry, {})
+  end
 end
