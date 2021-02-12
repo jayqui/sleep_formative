@@ -30,19 +30,21 @@ export const mainTextFieldsConfig = [
   {
     id: 'CurrentTime',
     label: "Current Time",
+    defaultValue: new Date(),
     type: 'time',
     variant: 'outlined',
   },
   {
     id: 'TodaysDate',
     label: "Today's Date",
+    defaultValue: new Date(),
     type: 'date',
     variant: 'outlined',
   },
   {
     id: 'nap-or-doze-count',
     label: "How many times did you nap or doze yesterday?",
-    InputProps: { inputProps: { max: 100, min: 0, } },
+    InputProps: { inputProps: { min: 0, max: 100 } },
     type: 'number',
     variant: 'outlined',
   },

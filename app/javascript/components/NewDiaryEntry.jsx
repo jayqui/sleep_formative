@@ -11,12 +11,12 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import Typography from '@material-ui/core/Typography';
+import Slider from '@material-ui/core/Slider';
 
 import { makeStyles } from '@material-ui/core/styles';
 
 import { nameEmailConfig, mainTextFieldsConfig, coachConfig } from 'components/NewDiaryEntry/newDiaryEntryConfig';
-
-console.log('coachConfig', coachConfig)
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -46,6 +46,29 @@ function NewDiaryEntry() {
   const styles = useStyles();
   const [coach, setCoach] = useState('');
 
+  const marks = [
+    {
+      value: 1,
+      label: 'Very Poor',
+    },
+    {
+      value: 2,
+      label: 'Poor',
+    },
+    {
+      value: 3,
+      label: 'Fair',
+    },
+    {
+      value: 4,
+      label: 'Good',
+    },
+    {
+      value: 5,
+      label: 'Very Good',
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <form className={styles.root}>
@@ -54,10 +77,9 @@ function NewDiaryEntry() {
         Please fill it out within 30 minutes of waking so your certified sleep specialist
           has an accurate picture of your progress.</p>
 
-        {nameEmailConfig.map((fieldData) => {
-          const { id, label, variant } = fieldData;
-          return <TextField required key={id} id={id} label={label} variant={variant} />
-        })}
+        {nameEmailConfig.map((fieldData) => (
+          <TextField required key={fieldData.id} {...fieldData} />
+        ))}
 
         <FormControl required>
           <InputLabel id="sleep-coach">Sleep Coach</InputLabel>
@@ -76,11 +98,9 @@ function NewDiaryEntry() {
           <FormHelperText>Required</FormHelperText>
         </FormControl>
 
-        {mainTextFieldsConfig.map((fieldData) => {
-          const { id, label, variant, helperText, InputProps } = fieldData;
-          return (<TextField required key={id} id={id} label={label} variant={variant}
-            helperText={helperText} InputProps={InputProps} />);
-        })}
+        {mainTextFieldsConfig.map((fieldData) => (
+          <TextField required key={fieldData.id} {...fieldData} />
+        ))}
 
         <FormControl required component="fieldset">
           <FormLabel component="legend">Did you take any over-the-counter or prescription medication(s) to help you sleep?</FormLabel>
@@ -93,16 +113,19 @@ function NewDiaryEntry() {
         <TextField id='medications-list' label="If yes, please list:" variant='outlined' />
 
 
-
         <FormControl required component="fieldset">
-          <FormLabel component="legend">How would you rate the quality of your sleep?</FormLabel>
-          <RadioGroup row aria-label="Sleep Quality" name="Sleep Quality">
-            <FormControlLabel value="Very Poor" control={<Radio />} label="Very Poor" />
-            <FormControlLabel value="Poor" control={<Radio />} label="Poor" />
-            <FormControlLabel value="Fair" control={<Radio />} label="Fair" />
-            <FormControlLabel value="Good" control={<Radio />} label="Good" />
-            <FormControlLabel value="Very Good" control={<Radio />} label="Very Good" />
-          </RadioGroup>
+          <Typography id="discrete-slider" gutterBottom>
+            How would you rate the quality of your sleep?
+          </Typography>
+          <Slider
+            defaultValue={3}
+            aria-labelledby="discrete-slider"
+            valueLabelDisplay="auto"
+            step={1}
+            marks={marks}
+            min={1}
+            max={5}
+          />
         </FormControl>
 
         <TextField id='out-of-bed-time' label="Comments (if applicable)" variant='outlined' />
