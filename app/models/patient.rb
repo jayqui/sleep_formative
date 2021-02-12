@@ -11,4 +11,5 @@
 #
 class Patient < ApplicationRecord
   has_many :diary_entries
+  validates :first_name, :last_name, :email, presence: true
 end

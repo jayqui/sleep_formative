@@ -19,6 +19,11 @@
 #  sleep_try_time       :datetime
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
+#  patient_id           :bigint
+#
+# Indexes
+#
+#  index_diary_entries_on_patient_id  (patient_id)
 #
 FactoryBot.define do
   factory :diary_entry do

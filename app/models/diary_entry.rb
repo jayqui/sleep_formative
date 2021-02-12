@@ -19,9 +19,13 @@
 #  sleep_try_time       :datetime
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
+#  patient_id           :bigint
+#
+# Indexes
+#
+#  index_diary_entries_on_patient_id  (patient_id)
 #
 class DiaryEntry < ApplicationRecord
   belongs_to :patient
-  validates :logged_at, :naps_count, :nap_minutes_total, :bed_entry_time, :sleep_try_time, :sleep_onset_duration, :awakenings_count, :awakenings_duration, :awoke_at, :arose_at, :medicated,
-            :medications, presence: true
+  validates :logged_at, :naps_count, :nap_minutes_total, :bed_entry_time, :sleep_try_time, :sleep_onset_duration, :awakenings_count, :awakenings_duration, :awoke_at, :arose_at, presence: true
 end
