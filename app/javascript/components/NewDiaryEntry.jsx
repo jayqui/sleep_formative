@@ -95,7 +95,6 @@ function NewDiaryEntry() {
               return <MenuItem key={id} value={name}>{name}</MenuItem>;
             })}
           </Select>
-          <FormHelperText>Required</FormHelperText>
         </FormControl>
 
         {mainTextFieldsConfig.map((fieldData) => (

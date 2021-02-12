@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 export const nameEmailConfig = [
   {
     id: 'Name',
@@ -26,19 +28,23 @@ export const coachConfig = [
   },
 ];
 
+console.log('DateTime.local()', DateTime.local())
+console.log('DateTime.local().toISODate()', DateTime.local().toISODate())
+console.log('DateTime.local().toLocaleString(DateTime.TIME_24_SIMPLE)', DateTime.local().toLocaleString(DateTime.TIME_24_SIMPLE))
+
 export const mainTextFieldsConfig = [
-  {
-    id: 'CurrentTime',
-    label: "Current Time",
-    defaultValue: new Date(),
-    type: 'time',
-    variant: 'outlined',
-  },
   {
     id: 'TodaysDate',
     label: "Today's Date",
-    defaultValue: new Date(),
+    defaultValue: DateTime.local().toISODate(),
     type: 'date',
+    variant: 'outlined',
+  },
+  {
+    id: 'CurrentTime',
+    label: "Current Time",
+    defaultValue: DateTime.local().toLocaleString(DateTime.TIME_24_SIMPLE),
+    type: 'time',
     variant: 'outlined',
   },
   {
